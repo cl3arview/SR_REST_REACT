@@ -1,0 +1,49 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.3'
+	id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.project'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+configurations {
+
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// Springdoc OpenAPI for API documentation
+	implementation 'org.springdoc:springdoc-openapi-ui:1.7.0'  // Check for the latest compatible version
+
+	// DJL dependencies
+	implementation 'ai.djl:api:0.22.1'
+	implementation 'ai.djl.tensorflow:tensorflow-engine:0.22.1'
+	implementation 'ai.djl.tensorflow:tensorflow-model-zoo:0.22.1'
+	implementation 'ai.djl.tensorflow:tensorflow-native-cu113:2.7.0:win-x86_64'
+
+
+	runtimeOnly 'org.bytedeco:javacpp:1.5.9' // Make sure this version is compatible with DJL TensorFlow
+	runtimeOnly 'com.h2database:h2'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
