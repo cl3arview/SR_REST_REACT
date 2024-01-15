@@ -37,8 +37,8 @@ dependencies {
 	implementation 'ai.djl:api:0.22.1'
 	implementation 'ai.djl.tensorflow:tensorflow-engine:0.22.1'
 	implementation 'ai.djl.tensorflow:tensorflow-model-zoo:0.22.1'
-	//implementation 'ai.djl.tensorflow:tensorflow-native-cu113:2.7.0:win-x86_64'
-	implementation 'ai.djl.tensorflow:tensorflow-native-cpu:2.7.0:win-x86_64'
+	implementation 'ai.djl.tensorflow:tensorflow-native-cu113:2.7.0:win-x86_64'
+	//implementation 'ai.djl.tensorflow:tensorflow-native-cpu:2.7.0:win-x86_64'
 
 
 	runtimeOnly 'org.bytedeco:javacpp:1.5.9' // Make sure this version is compatible with DJL TensorFlow
